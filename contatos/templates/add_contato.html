@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Adicionar novo contato</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Novo contato</h1>
+<form action="" method="post" accept-charset="utf-8">
+{% csrf_token %}
+	{{ form_contato.as_p }}
+	<input type="submit" name="" value="Salvar contato">
+</form>
+</body>
+</html>
