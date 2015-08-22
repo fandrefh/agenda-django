@@ -16,17 +16,11 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from agenda.core.views import home
-from agenda.contatos.views import add_contato
-from agenda.contatos.views import cadastro_sucesso
-from agenda.contatos.views import lista_contatos
-from agenda.contatos.views import apagar_contato
+from agenda.core import urls as core_urls
+from agenda.contatos import urls as contatos_urls
 
 urlpatterns = [
-	url(r'^$', home, name='home'),
-	url(r'^adicionar-contato/$', add_contato, name='addcontato'),
-	url(r'^sucesso/$', cadastro_sucesso, name='sucesso'),
-	url(r'^lista-contatos/$', lista_contatos, name='listacontatos'),
-	url(r'^deletar-contato/(?P<id>\d+)/$', apagar_contato, name='apagarcontato'),
+	url(r'', include(core_urls, namespace='core')),
+	url(r'^contato/', include(contatos_urls, namespace='contato')),
     url(r'^admin/', include(admin.site.urls)),
 ]

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-	<title>Listagem de contatos</title>
-	<meta charset="utf-8">
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block titulo %}
+	Lista de contatos cadastrados
+{% endblock titulo %}
+
+{% block corpo %}
 <h1>Contatos</h1>
 <table>
 	<caption>Meus contatos</caption>
@@ -28,11 +28,9 @@
 			<td>{{ c.email }}</td>
 			<td>{{ c.sexo }}</td>
 			<td>{{ c.cidade }}</td>
-			<td><a href="">Editar</a></td>
-			<td><a href="{% url 'apagarcontato' c.id %}">Apagar</a></td>
+			<td><a href="{% url 'contato:editarcontato' c.id %}">Editar</a></td>
+			<td><a href="{% url 'contato:apagarcontato' c.id %}">Apagar</a></td>
 		</tr>
 	{% endfor %}
 	</tbody>
-</table>
-</body>
-</html>
+{% endblock corpo %}
